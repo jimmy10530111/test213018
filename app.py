@@ -1,3 +1,6 @@
+import datetime
+import pymysql.cursors
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -9,6 +12,16 @@ from linebot.exceptions import (
 from linebot.models import *
 
 app = Flask(__name__)
+
+# connect to MySql
+connection = pymysql.connect(
+    host='192.168.1.103',
+    user='cat',
+    password='cat',
+    db='bug',
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor)
+cursor = connection.cursor()
 
 # Channel Access Token
 line_bot_api = LineBotApi('1bb5FOnOqLXnv2W6KeZ+3ms0neF09E8h2KVffW1wjiqSGskGKLQ7/2PDNNBxUWTg6M8UzBtADTqq+hDcec0SbHKRHcVb9Fs8714MJA8MmLWWracX3dnFmJAz5vE7pJErclmgPAE60+M74Cm56+LyEgdB04t89/1O/w1cDnyilFU=')
@@ -34,7 +47,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
+    cursor.execute("SELECT * FROM `test` WHERE `日期` LIKE '%s'"%(message))
+    result = cursor.fetchall()
+    for row in result:
+        line_bot_api.reply_message(event.reply_token, row)
 
 import os
 if __name__ == "__main__":
