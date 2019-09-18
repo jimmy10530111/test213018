@@ -13,8 +13,6 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-# connect to MySql
-
 
 # Channel Access Token
 line_bot_api = LineBotApi('1bb5FOnOqLXnv2W6KeZ+3ms0neF09E8h2KVffW1wjiqSGskGKLQ7/2PDNNBxUWTg6M8UzBtADTqq+hDcec0SbHKRHcVb9Fs8714MJA8MmLWWracX3dnFmJAz5vE7pJErclmgPAE60+M74Cm56+LyEgdB04t89/1O/w1cDnyilFU=')
@@ -40,7 +38,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
-    
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
