@@ -43,7 +43,7 @@ def callback():
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
-    test=str("test")
+    test=message+"test"
     line.push_message("U056904eae738c9778826ba74bc9f2d62", test)
 
 import os
