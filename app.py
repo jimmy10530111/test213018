@@ -42,9 +42,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage("測試")
-    #line_bot_api.reply_message(event.reply_token, message)
+    line_bot_api.reply_message(event.reply_token, message)
     #test=message+"test"
-    line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
+    #line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
 
 import os
 if __name__ == "__main__":
