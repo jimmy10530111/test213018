@@ -14,7 +14,14 @@ from linebot.models import *
 app = Flask(__name__)
 
 
-
+connection = pymysql.connect(
+    host='163.17.27.180',
+    user='cat',
+    password='cat',
+    db='cat',
+    charset='utf8mb4',
+    cursorclass=pymysql.cursors.DictCursor)
+cursor = connection.cursor()
 
 
 
@@ -41,8 +48,11 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '%s'"%(y))
+    result = cursor.fetchall()
     message = TextSendMessage("測試")
-    line_bot_api.reply_message(event.reply_token, message)
+    for row in result:
+        line_bot_api.reply_message(event.reply_token, row)
     #test=message+"test"
     #line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
 
