@@ -51,8 +51,7 @@ def handle_message(event):
     message = TextSendMessage("2019-10-07")
     cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '%s'"%(message))
     result = cursor.fetchall()
-    for row in result:
-        line_bot_api.reply_message(event.reply_token, row)
+    line_bot_api.reply_message(event.reply_token, result)
     #test=message+"test"
     #line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
 
