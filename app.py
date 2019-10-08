@@ -50,7 +50,7 @@ def handle_message(event):
 
    
     if event.message.txt =="2019-10-07"
-        cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '%s'"%(TextSendMessage(text=event.message.text)))
+        cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
         result = cursor.fetchall()
         line_bot_api.reply_message(event.reply_token, result)
     elif
