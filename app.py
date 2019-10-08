@@ -41,6 +41,18 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
+
+    if event.message.text == "20191007":
+        message = TextSendMessage("蟲害")
+        line_bot_api.reply_message(event.reply_token, message)
+
+
+    """
+    elif event.message.text == "東方果實蠅":
+        line_bot_api.reply_message(event.reply_token, ImageSendMessage(
+            original_content_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK',
+            preview_image_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK'))
+
     
     
     if event.message.txt == "20191007":
@@ -50,14 +62,7 @@ def handle_message(event):
     """
 
 
-    if event.message.text == "20191007":
-        message = TextSendMessage("蟲害種類資料庫:\n(1)東方果實蠅\n(2)瓜實蠅\n(3)果蠅\n(4)蒼蠅\n(5)壁虎\n(6)蟑螂")
-        line_bot_api.reply_message(event.reply_token, message)
-    elif event.message.text == "東方果實蠅":
-        line_bot_api.reply_message(event.reply_token, ImageSendMessage(
-            original_content_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK',
-            preview_image_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK'))
-        """
+            
 
 import os
 if __name__ == "__main__":
