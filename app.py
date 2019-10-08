@@ -48,10 +48,14 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage("2019-10-07")
-    cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '%s'"%(message))
+    t="2019-10-07"
+    #message = TextSendMessage(text=event.message.text)
+    cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '%s'"%(t))
     result = cursor.fetchall()
-    line_bot_api.reply_message(event.reply_token, result)
+    message = TextSendMessage(result)
+    line_bot_api.reply_message(event.reply_token, message)
+    message1 = TextSendMessage(text=event.message.text)
+    line_bot_api.reply_message(event.reply_token, message1)
     #test=message+"test"
     #line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
 
