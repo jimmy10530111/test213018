@@ -21,6 +21,24 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('1bb5FOnOqLXnv2W6KeZ+3ms0neF09E8h2KVffW1wjiqSGskGKLQ7/2PDNNBxUWTg6M8UzBtADTqq+hDcec0SbHKRHcVb9Fs8714MJA8MmLWWracX3dnFmJAz5vE7pJErclmgPAE60+M74Cm56+LyEgdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('705311288e013e163f3ff55d0e735958')
+userrid = 'U056904eae738c9778826ba74bc9f2d62'
+
+
+connection = pymysql.connect(
+    host='163.17.27.180',
+    user='cat',
+    password='cat',
+    db='cat',
+    cursorclass=pymysql.cursors.DictCursor)
+
+cursor = connection.cursor()
+cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
+result = cursor.fetchall()
+
+message = TextSendMessage(result)
+#line_bot_api.reply_message(event.reply_token, message)
+line_bot_api.push_message(userrid, message)
+
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -52,6 +70,7 @@ def handle_message(event):
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
         result = cursor.fetchall()
+
         message = TextSendMessage(result)
         line_bot_api.reply_message(event.reply_token, message)
 
