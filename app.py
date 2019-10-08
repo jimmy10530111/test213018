@@ -39,7 +39,8 @@ message = TextSendMessage(result)
 #line_bot_api.reply_message(event.reply_token, message)
 line_bot_api.push_message(userrid, message)
 
-
+message2 = TextSendMessage("111111")
+line_bot_api.push_message(userrid, message2)
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
