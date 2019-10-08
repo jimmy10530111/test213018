@@ -1,7 +1,6 @@
 
 import pymysql.cursors
 
-import sys
 
 from flask import Flask, request, abort
 
@@ -15,9 +14,6 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-
-a = sys.argv[1]
-b = sys.argv[2]
 
 
 # Channel Access Token
@@ -45,7 +41,7 @@ def callback():
 def handle_message(event):
    
     
-    message = TextSendMessage(text=event.message.text)+a+b
+    message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
     #test=message+"test"
     #line.push_message("U056904eae738c9778826ba74bc9f2d62", message)
