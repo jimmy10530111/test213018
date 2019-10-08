@@ -1,1 +1,4 @@
 python-3.7.3
+flask-1.1.1
+PyMySQL-0.93
+mysql-connector-2.2.9 
