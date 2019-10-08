@@ -40,8 +40,8 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
-    if event.message.txt =="2019-10-07"
+    a = "2019-10-07"
+    if event.message.txt == str(a)
         
         line_bot_api.reply_message(event.reply_token, "123")
     
