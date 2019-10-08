@@ -42,18 +42,8 @@ def callback():
 def handle_message(event):
     
     if event.message.txt =="2019-10-07"
-        connection = pymysql.connect(
-            host='163.17.27.180',
-            user='cat',
-            password='cat',
-            db='cat',
-            cursorclass=pymysql.cursors.DictCursor)
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
-        result = cursor.fetchall()
-        line_bot_api.reply_message(event.reply_token, result)
-    else
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+        
+        line_bot_api.reply_message(event.reply_token, "123")
     
 
 import os
