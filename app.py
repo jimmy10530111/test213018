@@ -41,18 +41,22 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     
-    
+    if event.message.txt =="2019-10-07"
+        connection = pymysql.connect(
+            host='163.17.27.180',
+            user='cat',
+            password='cat',
+            db='cat',
+            cursorclass=pymysql.cursors.DictCursor)
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
+        result = cursor.fetchall()
+        line_bot_api.reply_message(event.reply_token, result)
+    elif
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
     
 
 import os
-_host = '127.0.0.1'
-_port = 5000
-servername = self.config['SERVER_NAME']
-if server_name:
-    if server_name and ':' in server_name:
-        _host, _port = servername.split(':', 1)
-if host is None:
-    host = _host
-if port is None:
-    port = _port
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5555))
+    app.run(host='0.0.0.0', port=port)
