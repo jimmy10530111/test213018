@@ -43,7 +43,16 @@ def handle_message(event):
 
 
     if event.message.text == "20191007":
-        message = TextSendMessage("蟲害")
+        connection = pymysql.connect(
+            host='163.17.27.180',
+            user='cat',
+            password='cat',
+            db='cat',
+            cursorclass=pymysql.cursors.DictCursor)
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
+        result = cursor.fetchall()
+        message = TextSendMessage(result)
         line_bot_api.reply_message(event.reply_token, message)
 
 
