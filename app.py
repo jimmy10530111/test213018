@@ -42,13 +42,11 @@ def callback():
 def handle_message(event):
 
     
-    #a = "20191007"
-    #print(event.message.txt == str(a))
+    
     if event.message.txt == "20191007":
         message = TextSendMessage("測試")
         line_bot_api.reply_message(event.reply_token, message)
-    else:
-        line_bot_api.reply_message(event.reply_token, event.message.txt)
+        
     """
 
 
