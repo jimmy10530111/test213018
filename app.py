@@ -14,14 +14,6 @@ from linebot.models import *
 app = Flask(__name__)
 
 
-connection = pymysql.connect(
-    host='163.17.27.180',
-    user='cat',
-    password='cat',
-    db='cat',
-    charset='utf8mb4',
-    cursorclass=pymysql.cursors.DictCursor)
-cursor = connection.cursor()
 
 
 
