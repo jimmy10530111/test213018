@@ -41,14 +41,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    connection = pymysql.connect(
-        host='163.17.27.180',
-        user='cat',
-        password='cat',
-        db='cat',
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor)
-    cursor = connection.cursor()
+   
     
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token, message)
