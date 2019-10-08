@@ -41,8 +41,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
 
-    """
-    a = "2019-10-07"
+    
+    a = "20191007"
     #print(event.message.txt == str(a))
     if event.message.txt == str(a):
         message = TextSendMessage("測試")
@@ -59,7 +59,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, ImageSendMessage(
             original_content_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK',
             preview_image_url='https://drive.google.com/uc?export=download&id=1PHSDd75mPEHT5u3uOy_z0J8tyixVVRhK'))
-        
+        """
 
 import os
 if __name__ == "__main__":
