@@ -45,7 +45,6 @@ def handle_message(event):
         user='cat',
         password='cat',
         db='cat',
-        charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor)
     cursor = connection.cursor()
 
