@@ -42,8 +42,8 @@ def callback():
 def handle_message(event):
     a = "2019-10-07"
     if event.message.txt == str(a):
-        
-        line_bot_api.reply_message(event.reply_token, "123")
+        message = TextSendMessage("測試")
+        line_bot_api.reply_message(event.reply_token, message)
     
 
 import os
