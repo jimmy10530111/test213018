@@ -23,10 +23,10 @@ line_bot_api = LineBotApi('1bb5FOnOqLXnv2W6KeZ+3ms0neF09E8h2KVffW1wjiqSGskGKLQ7/
 handler = WebhookHandler('705311288e013e163f3ff55d0e735958')
 userrid = 'U056904eae738c9778826ba74bc9f2d62'
 
-engine=create_engine('mysql+mysqlconnector://cat:cat@163.17.27.180/cat')
-re=engine.connect()
-re.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
-result = re.fetchall()
+#engine=create_engine('mysql+mysqlconnector://cat:cat@163.17.27.180/cat')
+#re=engine.connect()
+#re.execute("SELECT * FROM `gato` WHERE `Date` LIKE '2019-10-07'")
+#result = re.fetchall()
 
 
 message = TextSendMessage(result)
@@ -55,7 +55,7 @@ def callback():
 def handle_message(event):
 
         message = TextSendMessage(result)
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, text=event.message.text)
 
 
     """
