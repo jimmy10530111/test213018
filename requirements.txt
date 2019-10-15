@@ -1,3 +1,5 @@
 line-bot-sdk
 flask
-pymysql
+mysql-connector
+SQLAlchemy
+
