@@ -1,6 +1,6 @@
 
-import pymysql.cursors
-
+#import pymysql.cursors
+import mysql.connector
 
 from flask import Flask, request, abort
 
@@ -24,7 +24,7 @@ handler = WebhookHandler('705311288e013e163f3ff55d0e735958')
 userrid = 'U056904eae738c9778826ba74bc9f2d62'
 
 
-connection = pymysql.connect(
+connection = mysql.connector.connect(
     host='163.17.27.180',
     user='cat',
     password='cat',
